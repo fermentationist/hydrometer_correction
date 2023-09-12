@@ -1,33 +1,39 @@
 use std::io;
 
-fn parse_input (input_str: &str) -> Option<(f64, f64, f64)> {
-  let split: Vec<&str> = input_str.split(" ").collect();
-  if split.len() >= 3 && split[1] == "@"  {
-    let measured_sg: f64 = match split[0].trim().parse::<f64>() {
-      Ok(sg) => sg,
-      Err(_) => return None
-    };
-    
-    let measured_temp: f64 = match split[2].trim().parse::<f64>() {
-      Ok(temp) => temp,
-      Err(_) => return None
-    };
-    let mut calibration_temp: f64 = 60.0;
-    if split.len() == 5 {
-      calibration_temp = split[4].trim().parse::<f64>().unwrap_or(calibration_temp);
-    }
-    return Some((measured_sg, measured_temp, calibration_temp))
-  }
-  None
+const DEFAULT_CALIBRATION_TEMP: f64 = 60.0;
+
+fn split_and_trim<'a> (input_str: &'a str, delim: &'a str) -> Vec<&'a str> {
+  input_str.split(delim).collect::<Vec<&str>>().iter().map(|x| {x.trim()}).collect::<Vec<&str>>()
 }
 
-pub fn main_loop () {
-  const MAIN_MESSAGE: &str = "Please enter a hydrometer reading (SG) with a temperature (in ºF) and an optional calibration temperature (in ºF, default is 60ºF), in the form: <measured gravity> @ <measured temperature> : <calibration_temperature>\nExample: 1.052 @ 90.0 : 59";
+fn parse_input(input_str: &str) -> Option<(f64, f64, f64)> {
+  let [sg_str, remaining_str] = split_and_trim(input_str, "@")[..] else { return None; };
+  let split_remaining = split_and_trim(remaining_str, ":");
+  let [temp_str, calib_str] = match split_remaining[..] {
+    [] => return None,
+    [temp] => [temp, "60"],
+    [temp, calib] => [temp, calib],
+    [temp, calib, ..] => [temp, calib]
+  };
+  let measured_sg = match sg_str.parse::<f64>() {
+    Ok(sg) => sg,
+    Err(_) => return None
+  };
+  let measured_temp = match temp_str.parse::<f64>() {
+    Ok(temp) => temp,
+    Err(_) => return None
+  };
+  let calibration_temp = calib_str.parse::<f64>().unwrap_or(DEFAULT_CALIBRATION_TEMP);
+  Some((measured_sg, measured_temp, calibration_temp))
+}
+
+pub fn main_loop() {
+  const MAIN_MESSAGE: &str = "Please enter a hydrometer reading (SG) with a temperature (in ºF) and an optional calibration temperature (in ºF, default is 60ºF), in the form: <measured gravity> @ <measured temperature> : <calibration_temperature>\nExample: 1.052 @ 93.8 : 68";
   loop {
     println!("{}", MAIN_MESSAGE);
     let mut input: String = String::new();
     let _user_input = io::stdin().read_line(&mut input).expect("Please enter a hydrometer reading (SG) with temperature (in ºF)");
-    if input == "exit" {
+    if input.trim() == "exit" {
       break;
     }
     let (measured_sg, measured_temp, calibration_temp) = match parse_input(&input.trim()){
