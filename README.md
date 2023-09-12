@@ -10,8 +10,7 @@ This is my first Rust project. It is a simple command line tool to correct hydro
     a. Run the program with `cargo run`.
     b. Build the program with `cargo build`, and then run the binary - `./target/debug/hydrometer_correction`.
     c. Install the program with `cargo install --path .` and run with the command `hydrometer_correction`.
-4. Follow the prompts.
-
+4. Follow the prompts to use. You may also type `help` or `h` at any time, for detailed instructions.
 ---
 
 ### License
