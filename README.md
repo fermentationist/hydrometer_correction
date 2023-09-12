@@ -3,6 +3,8 @@
 ## Description
 This is my first Rust project. It is a simple command line tool to correct hydrometer readings for temperature.
 
+Hydrometers measure the density of a liquid relative to water. This is useful for homebrewing, as it allows you to measure the amount of sugar in a solution. However, hydrometers are calibrated to measure the density of water at a specific temperature, usually 60°F or 68°F. If you measure the density of a solution at a different temperature, you will need to correct the reading to get the actual density at the calibration temperature.
+
 ## Usage
 
 You will need to have Rust installed on your system. If you do not have Rust installed, you can find instructions [here](https://www.rust-lang.org/tools/install).
