@@ -5,7 +5,7 @@ This is my first Rust project. It is a simple command line tool to correct hydro
 
 ## Usage
 
-You will need to have Rust installed on your system. If you do not have Rust installed, you can find instructions [here](https://www.rust-lang.org/tools/install). Once you have Rust installed, you can run the program in one of three ways
+You will need to have Rust installed on your system. If you do not have Rust installed, you can find instructions [here](https://www.rust-lang.org/tools/install).
 
 1. Download the repository: `git clone https://github.com/fermentationist/hydrometer_correction.git`.
 2. Change into the directory: `cd hydrometer_correction`.
