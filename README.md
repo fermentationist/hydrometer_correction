@@ -4,13 +4,16 @@
 This is my first Rust project. It is a simple command line tool to correct hydrometer readings for temperature.
 
 ## Usage
+
+You will need to have Rust installed on your system. If you do not have Rust installed, you can find instructions [here](https://www.rust-lang.org/tools/install). Once you have Rust installed, you can run the program in one of three ways
+
 1. Download the repository: `git clone https://github.com/fermentationist/hydrometer_correction.git`.
 2. Change into the directory: `cd hydrometer_correction`.
 3. You may either:
     a. Run the program with `cargo run`.
-    b. Build the program with `cargo build`, and then run the binary - `./target/debug/hydrometer_correction`.
-    c. Install the program with `cargo install --path .` and run with the command `hydrometer_correction`.
-4. Follow the prompts to use. You may also type `help` or `h` at any time, for detailed instructions.
+    b. Build the program with `cargo build --release`, and then run the binary - `./target/release/hydrometer_correction`. This binary can also be moved and run from anywhere on your system, or even copied to another system (without Rust) and run there.
+    c. Install the program with `cargo install --path .` and then run with the command `hydrometer_correction` from anywhere.
+4. Follow the prompts to use. You may also type `help` or `h` at any time, for more detailed instructions.
 ---
 
 ### License

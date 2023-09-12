@@ -63,7 +63,7 @@ pub fn main_loop() {
       break;
     }
     if input == "help" || input == "h" || input == "-h" {
-      println!("\n{}", VERBOSE_MESSAGE);
+      println!("\n{}\n", VERBOSE_MESSAGE);
       continue;
     }
     let (measured_sg, measured_temp, calibration_temp) = match parse_input(&input){
