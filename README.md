@@ -12,15 +12,15 @@ You will need to have Rust installed on your system. If you do not have Rust ins
 1. Download the repository: `git clone https://github.com/fermentationist/hydrometer_correction.git`.
 2. Change into the directory: `cd hydrometer_correction`.
 3. You may either:
-    a. Run the program with `cargo run`.
-    b. Build the program with `cargo build --release`, and then run the binary - `./target/release/hydrometer_correction`. This binary can also be moved and run from anywhere on your system, or even copied to another system (without Rust) and run there.
-    c. Install the program with `cargo install --path .` and then run with the command `hydrometer_correction` from anywhere.
+    - Run the program with `cargo run`.
+    - Build the program with `cargo build --release`, and then run the binary - `./target/release/hydrometer_correction`. This binary can also be moved and run from anywhere on your system, or even copied to another system (without Rust) and run there.
+    - Install the program with `cargo install --path .` and then run with the command `hydrometer_correction` from anywhere.
 4. Follow the prompts to use. You may also type `help` or `h` at any time, for more detailed instructions.
 ---
 
 ### License
 
-#### Copyright © 2023, [Dennis Hodges](https://dennis-hodges.com)
+#### Copyright © 2023 [Dennis Hodges](https://dennis-hodges.com)
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
