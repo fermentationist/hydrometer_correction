@@ -1,6 +1,9 @@
-mod hydrometer_correction;
+use std::io::{stdin, stdout};
+mod bin;
+
+#[cfg(test)]
+mod bin_tests;
 
 fn main() {
-    println!("\nHydrometer Temperature Correction Utility\n");
-    hydrometer_correction::main_loop();
+    bin::main_loop(stdin().lock(), stdout());
 }

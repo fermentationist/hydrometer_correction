@@ -16,6 +16,18 @@ You will need to have Rust installed on your system. If you do not have Rust ins
     - Build the program with `cargo build --release`, and then run the binary - `./target/release/hydrometer_correction`. This binary can also be moved and run from anywhere on your system, or even copied to another system (without Rust) and run there.
     - Install the program with `cargo install --path .` and then run with the command `hydrometer_correction` from anywhere.
 4. Follow the prompts to use. You may also type `help` or `h` at any time, for more detailed instructions.
+
+## Development
+
+### Testing
+
+To run the tests, use the command `cargo test`. This will run the tests in `src/lib_tests/mod.rs` `src/bin_tests/mod.rs`. The tests in `src/lib_tests/mod.rs` are unit tests for the functions in `src/lib.rs`. The tests in `src/bin_tests/mod.rs` are "integration" tests for the binary executable (or actually unit tests for the `main_loop` function in `src/bin.rs`).
+
+### Dependencies
+
+- [Rust](https://www.rust-lang.org/tools/install) - This crate's only dependency is Rust itself.
+
+
 ---
 
 ### License
